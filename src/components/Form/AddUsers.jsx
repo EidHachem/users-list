@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid"
 import AlertModal from "../Modal/AlertModal"
 
 import styles from './AddUsesrs.module.css'
+import Card from "../UI/Card"
 
 const AddUsers = ({ addUser }) => {
   const [username, setUsername] = useState("")
@@ -57,7 +58,7 @@ const AddUsers = ({ addUser }) => {
   }
 
   return (
-    <div className={styles.container}>
+    <Card>
       <form className={styles.form} onSubmit={addNewUserHandler}>
         <label className={styles.label}>Username</label>
         <input className={styles.input} type="text" onChange={addNameHAndler} value={username} />
@@ -77,7 +78,7 @@ const AddUsers = ({ addUser }) => {
         }
         closeModal={() => setShowModel(false)}
       />}
-    </div>
+    </Card>
   )
 }
 
