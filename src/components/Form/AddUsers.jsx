@@ -60,11 +60,11 @@ const AddUsers = ({ addUser }) => {
   return (
     <Card>
       <form className={styles.form} onSubmit={addNewUserHandler}>
-        <label className={styles.label}>Username</label>
-        <input className={styles.input} type="text" onChange={addNameHAndler} value={username} />
+        <label htmlFor="name" className={styles.label}>Username</label>
+        <input id="name" className={styles.input} type="text" onChange={addNameHAndler} value={username} placeholder="Enter username" />
         <br />
-        <label className={styles.label}>Age</label>
-        <input className={styles.input} type="number" onChange={addAgeHAndler} value={age} />
+        <label htmlFor="age" className={styles.label}>Age</label>
+        <input id="age" className={styles.input} type="number" onChange={addAgeHAndler} value={age} placeholder="Enter user age" />
         <Button name="Add User" />
       </form>
       {showModel && <AlertModal
