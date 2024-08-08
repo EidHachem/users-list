@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Button from "../UI/Button"
 import { v4 as uuidv4 } from "uuid"
 import AlertModal from "../Modal/AlertModal"
@@ -7,52 +7,48 @@ import styles from "./AddUsesrs.module.css"
 import Card from "../UI/Card"
 
 const AddUsers = ({ addUser }) => {
-  const [username, setUsername] = useState("")
-  const [age, setAge] = useState("")
   const [showModel, setShowModel] = useState(false)
   const [emptyField, setEmptyField] = useState(false)
   const [negativeAge, setNegativeAge] = useState(false)
 
-  const addNameHAndler = (e) => {
-    setUsername(e.target.value)
-  }
-
-  const addAgeHAndler = (e) => {
-    setAge(e.target.value)
-  }
+  const nameInputRef = useRef()
+  const ageInputRef = useRef()
 
   const addNewUserHandler = (e) => {
     e.preventDefault()
 
-    const user = {
-      id: uuidv4(),
-      name: username,
-      age,
-    }
+    const enteredName = nameInputRef.current.value
+    const enteredAge = ageInputRef.current.value
 
-    if (user.name.trim().length <= 0) {
+    if (enteredName.trim().length <= 0) {
       setEmptyField(true)
       setShowModel(true)
       return
     }
 
-    if (user.age.trim().length <= 0) {
+    if (enteredAge.trim().length <= 0) {
       setEmptyField(true)
       setShowModel(true)
       return
     }
 
-    if (+user.age <= 0) {
+    if (+enteredAge <= 0) {
       setEmptyField(false)
       setNegativeAge(true)
       setShowModel(true)
-      setAge("")
+      ageInputRef.current.value = ""
       return
     }
 
+    const user = {
+      id: uuidv4(),
+      name: enteredName,
+      age: enteredAge,
+    }
+
     addUser(user)
-    setUsername("")
-    setAge("")
+    nameInputRef.current.value = "" // Just to use ref instead of state
+    ageInputRef.current.value = ""
     setEmptyField(false)
     setNegativeAge(false)
   }
@@ -65,10 +61,9 @@ const AddUsers = ({ addUser }) => {
         </label>
         <input
           id="name"
+          ref={nameInputRef}
           className={styles.input}
           type="text"
-          onChange={addNameHAndler}
-          value={username}
           placeholder="Enter username"
         />
         <br />
@@ -77,10 +72,9 @@ const AddUsers = ({ addUser }) => {
         </label>
         <input
           id="age"
+          ref={ageInputRef}
           className={styles.input}
           type="number"
-          onChange={addAgeHAndler}
-          value={age}
           placeholder="Enter user age"
         />
         <Button name="Add User" />
