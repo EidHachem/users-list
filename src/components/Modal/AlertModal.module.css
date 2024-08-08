@@ -1,68 +1,68 @@
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 400px;
-    animation: fadeIn 0.5s ease-in-out;
-    animation-fill-mode: forwards;
-    animation-delay: 0.5s;
-    animation-direction: alternate;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  animation-direction: alternate;
 }
 
 .modal-header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    font-size: 18px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .modal-title {
-    margin: 0;
-    font-weight: bold;
+  margin: 0;
+  font-weight: bold;
 }
 
 .modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 10px;
-    min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+  min-height: 100px;
 }
 
 .btn {
-    justify-self: flex-end;
-    align-self: flex-end;
-    background-color: #007bff;
-    color: #fff;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    padding: 5px 20px;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: bold;
+  justify-self: flex-end;
+  align-self: flex-end;
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 5px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .btn:hover {
-    transition: all 0.3s ease-in-out;
-    background-color: #fff;
-    color: #007bff;
-    border: 1px solid #007bff;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
 }

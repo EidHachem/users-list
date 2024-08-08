@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import './App.css'
-import AddUsers from './components/Form/AddUsers'
+import { useState } from "react"
+import "./App.css"
+import AddUsers from "./components/Form/AddUsers"
 
-import UsersList from './components/List/UsersList'
+import UsersList from "./components/List/UsersList"
 
 function App() {
-
   const [users, setUsers] = useState([])
 
   const updateUsersList = (user) => {
@@ -16,8 +15,8 @@ function App() {
 
   return (
     <div>
-    <AddUsers addUser={updateUsersList} />
-    { users.length && <UsersList users={users} />}
+      <AddUsers addUser={updateUsersList} />
+      {users.length && <UsersList users={users} />}
     </div>
   )
 }
