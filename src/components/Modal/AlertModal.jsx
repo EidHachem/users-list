@@ -1,4 +1,5 @@
 import React from "react"
+import ReactDom from "react-dom"
 import styles from "./AlertModal.module.css"
 
 const AlertModal = ({ type, message, closeModal }) => {
@@ -12,7 +13,9 @@ const AlertModal = ({ type, message, closeModal }) => {
     };
 
   return (
-    <div className={styles.overlay} onClick={closeModalHandler}>
+    <>
+    {ReactDom.createPortal(
+      <div className={styles.overlay} onClick={closeModalHandler}>
       <div className={styles.modal} onClick={stopPropagationHandler}>
         <div className={styles['modal-header']}>
           <h4 className={styles['modal-title']}>{type}</h4>
@@ -23,6 +26,8 @@ const AlertModal = ({ type, message, closeModal }) => {
         </div>
       </div>
     </div>
+    , document.getElementById("modal-root"))}
+    </>
   )
 }
 
